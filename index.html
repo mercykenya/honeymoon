@@ -263,9 +263,7 @@
         }
         
         .cost-tag {
-            background: #dcfce7;
-            color: #166534;
-            border: 1px solid #bbf7d0;
+            display: none;
         }
         
         .location-tag {
@@ -355,9 +353,13 @@
             padding: 3rem 2rem;
             background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 20%, #dc2626 40%, #7c2d12 60%, #451a03 80%);
             border-radius: 16px;
-            margin: 2rem 0;
+            margin: 0;
             color: white;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            min-height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .welcome-title {
@@ -365,10 +367,7 @@
             font-weight: 700;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            background: linear-gradient(45deg, #fbbf24, #f59e0b, #dc2626);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
         }
         
         .welcome-subtitle {
@@ -394,9 +393,10 @@
             backdrop-filter: blur(10px);
             border-radius: 12px;
             padding: 2rem;
-            margin: 2rem 0;
+            margin: 2rem auto;
             border: 1px solid rgba(255,255,255,0.2);
             text-align: left;
+            max-width: 800px;
         }
         
         .instructions-title {
@@ -456,8 +456,28 @@
             box-shadow: 0 6px 20px rgba(44, 85, 48, 0.5);
         }
         
-        .no-selection {
+        .day-card, .no-selection {
             display: none;
+        }
+        
+        .content.show-welcome .welcome-page {
+            display: flex;
+        }
+        
+        .content.show-welcome .sidebar {
+            display: none;
+        }
+        
+        .content.show-days {
+            grid-template-columns: 1fr 320px;
+        }
+        
+        .content.show-days .welcome-page {
+            display: none;
+        }
+        
+        .content.show-days .day-card.active {
+            display: block;
         }
         
         .quick-nav {
@@ -605,7 +625,7 @@
             </div>
         </div>
         
-        <div class="content">
+        <div class="content show-welcome" id="main-content">
             <div class="main-content">
                 <div id="welcome-page" class="welcome-page">
                     <div class="fall-decoration">🍂🍁🌰🎃🍂</div>
@@ -648,22 +668,6 @@
                         </div>
                         
                         <div class="instruction-item">
-                            <div class="instruction-icon">💰</div>
-                            <div class="instruction-text">
-                                <h4>Budget Tracking</h4>
-                                <p>Green tags show estimated costs. The sidebar has our complete accommodation budget breakdown.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="instruction-item">
-                            <div class="instruction-icon">📅</div>
-                            <div class="instruction-text">
-                                <h4>Date Picker</h4>
-                                <p>Use the date selector at the top to jump to any specific day quickly.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="instruction-item">
                             <div class="instruction-icon">💡</div>
                             <div class="instruction-text">
                                 <h4>Local Tips & Notes</h4>
@@ -672,13 +676,7 @@
                         </div>
                     </div>
                     
-                    <button onclick="showDay(0)" class="start-button">🍂 Start Our Adventure - Day 1 🍁</button>
-                </div>
-                
-                <div id="no-selection" class="no-selection">
-                    <h3>🍂 Welcome to Our Honeymoon Adventure! 🍁</h3>
-                    <p>Select a day from the sidebar or use the navigation above to explore our 7-day journey</p>
-                    <p><strong>September 20-26, 2025</strong></p>
+                    <button onclick="startItinerary()" class="start-button">🍂 Start Our Adventure - Day 1 🍁</button>
                 </div>
                 
                 <!-- Day 1 -->
@@ -733,7 +731,7 @@
                             <div class="accommodation-details">
                                 <div><strong>Hotel:</strong> Fairfield Inn & Suites By Marriott Duluth Waterfront</div>
                                 <div><strong>Address:</strong> 1000 Minnesota Avenue, Duluth, MN 55802</div>
-                                <div><strong>Cost:</strong> $221.00 (includes breakfast)</div>
+                                <div><strong>Features:</strong> Includes breakfast</div>
                             </div>
                             <div class="accommodation-links">
                                 <a href="https://maps.google.com/?q=1000+Minnesota+Avenue,Duluth,MN+55802" target="_blank" class="tag map-link">🗺️ Hotel Directions</a>
@@ -753,11 +751,9 @@
                             <div class="time-content">
                                 <div class="activity-item">
                                     <div class="activity-text">Complimentary breakfast at the hotel</div>
-                                    <span class="cost-tag">💰 Included</span>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Pack snacks and drinks for the scenic drive</div>
-                                    <span class="cost-tag">💰 ~$30</span>
                                 </div>
                             </div>
                         </div>
@@ -771,7 +767,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Lunch en route at a charming lakeside town</div>
-                                    <span class="cost-tag">💰 ~$40-60</span>
                                 </div>
                             </div>
                         </div>
@@ -785,7 +780,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Grocery shopping at MarketPlace Foods in Houghton (20 min drive)</div>
-                                    <span class="cost-tag">💰 ~$150</span>
                                     <a href="https://maps.google.com/?q=MarketPlace+Foods,Houghton,Michigan" target="_blank" class="tag map-link">🗺️ Store Directions</a>
                                 </div>
                                 <div class="activity-item">
@@ -810,7 +804,7 @@
                             <div class="accommodation-details">
                                 <div><strong>Property:</strong> Private Lakefront Retreat</div>
                                 <div><strong>Address:</strong> 5 Mile Point Rd, Allouez, MI 49805</div>
-                                <div><strong>Cost:</strong> $719.00 (4 nights)</div>
+                                <div><strong>Duration:</strong> 4 nights</div>
                                 <div><strong>Features:</strong> Full kitchen, fireplace, wall of glass overlooking Lake Superior</div>
                             </div>
                             <div class="accommodation-links">
@@ -852,17 +846,14 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Lunch at Mariner North Restaurant</div>
-                                    <span class="cost-tag">💰 ~$35-50</span>
                                     <a href="https://maps.google.com/?q=Mariner+North+Restaurant,Copper+Harbor,Michigan" target="_blank" class="tag map-link">🗺️ Restaurant</a>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Keweenaw Agate Shop - honeymoon keepsakes of local stones</div>
-                                    <span class="cost-tag">💰 ~$100</span>
                                     <a href="https://maps.google.com/?q=Keweenaw+Agate+Shop,Copper+Harbor,Michigan" target="_blank" class="tag map-link">🗺️ Shop Location</a>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Grandpa's Barn Bookstore - local history books and unique finds</div>
-                                    <span class="cost-tag">💰 ~$30</span>
                                     <a href="https://maps.google.com/?q=Grandpa's+Barn+Books,Copper+Harbor,Michigan" target="_blank" class="tag map-link">🗺️ Bookstore</a>
                                 </div>
                                 <div class="activity-item">
@@ -871,7 +862,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Fort Wilkins State Park - historic site and hiking trails</div>
-                                    <span class="cost-tag">💰 ~$12 entry</span>
                                     <a href="https://maps.google.com/?q=Fort+Wilkins+State+Park,Copper+Harbor,Michigan" target="_blank" class="tag map-link">🗺️ State Park</a>
                                 </div>
                             </div>
@@ -882,7 +872,6 @@
                             <div class="time-content">
                                 <div class="activity-item">
                                     <div class="activity-text">Romantic dinner at Harbor Haus Restaurant (Reservations recommended!)</div>
-                                    <span class="cost-tag">💰 ~$90</span>
                                     <a href="https://maps.google.com/?q=Harbor+Haus+Restaurant,Copper+Harbor,Michigan" target="_blank" class="tag map-link">🗺️ Restaurant</a>
                                 </div>
                                 <div class="activity-item">
@@ -920,7 +909,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Authentic UP pasty lunch at Roy's Pasties & Bakery (local tradition!)</div>
-                                    <span class="cost-tag">💰 ~$25</span>
                                     <span class="location-tag">📍 Houghton, MI</span>
                                     <a href="https://maps.google.com/?q=Roy's+Pasties+Bakery,Houghton,Michigan" target="_blank" class="tag map-link">🗺️ Roy's Location</a>
                                 </div>
@@ -940,7 +928,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Local farmers market (if still in season)</div>
-                                    <span class="cost-tag">💰 ~$20-40</span>
                                     <a href="https://maps.google.com/?q=Houghton+Farmers+Market,Michigan" target="_blank" class="tag map-link">🗺️ Market Location</a>
                                 </div>
                             </div>
@@ -951,7 +938,6 @@
                             <div class="time-content">
                                 <div class="activity-item">
                                     <div class="activity-text">Grocery shopping for romantic dinner ingredients</div>
-                                    <span class="cost-tag">💰 ~$60-80</span>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Cook together - try local Lake Superior fish specialties</div>
@@ -1045,12 +1031,10 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Lunch stop in Door County - "Cape Cod of the Midwest"</div>
-                                    <span class="cost-tag">💰 ~$50-70</span>
                                     <a href="https://maps.google.com/?q=Door+County,Wisconsin" target="_blank" class="tag map-link">🗺️ Door County</a>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Apple picking at local Wisconsin orchard (seasonal)</div>
-                                    <span class="cost-tag">💰 ~$20-30</span>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Photo opportunities along Lake Michigan shoreline</div>
@@ -1070,7 +1054,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Romantic dinner at Joey Gerard's Supper Club (nearby Greendale)</div>
-                                    <span class="cost-tag">💰 ~$100-140</span>
                                     <a href="https://maps.google.com/?q=Joey+Gerard's+Supper+Club,Greendale,Wisconsin" target="_blank" class="tag map-link">🗺️ Restaurant</a>
                                 </div>
                                 <div class="activity-item">
@@ -1089,7 +1072,7 @@
                             <div class="accommodation-details">
                                 <div><strong>Property:</strong> Unique Circular Dome Accommodation</div>
                                 <div><strong>Address:</strong> 6206 Hwy V, Caledonia, WI 53108</div>
-                                <div><strong>Cost:</strong> $248.01 (1 night)</div>
+                                <div><strong>Duration:</strong> 1 night</div>
                                 <div><strong>Features:</strong> Queen bed, mini fridge, coffee maker, 360° views, stargazing dome</div>
                             </div>
                             <div class="accommodation-links">
@@ -1117,7 +1100,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Apple picking at nearby orchard (if not done yesterday)</div>
-                                    <span class="cost-tag">💰 ~$20-30</span>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Final honeymoon photos and careful packing</div>
@@ -1138,7 +1120,6 @@
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">Optional lunch stop along the way</div>
-                                    <span class="cost-tag">💰 ~$30-50</span>
                                 </div>
                                 <div class="activity-item">
                                     <div class="activity-text">1:00-2:00 PM: Arrive home with hearts and bags full of memories</div>
@@ -1155,10 +1136,6 @@
                 
                 <div class="summary-grid">
                     <div class="summary-card">
-                        <div class="summary-value">$1,188</div>
-                        <div class="summary-label">Total Accommodations</div>
-                    </div>
-                    <div class="summary-card">
                         <div class="summary-value">7 Days</div>
                         <div class="summary-label">Complete Journey</div>
                     </div>
@@ -1169,6 +1146,10 @@
                     <div class="summary-card">
                         <div class="summary-value">3 States</div>
                         <div class="summary-label">MN → MI → WI</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">3 Places</div>
+                        <div class="summary-label">Amazing Stays</div>
                     </div>
                 </div>
             </div>
@@ -1185,26 +1166,6 @@
                         <button onclick="showDay(4)" class="quick-nav-btn" id="nav-4">Day 5: Romance Day</button>
                         <button onclick="showDay(5)" class="quick-nav-btn" id="nav-5">Day 6: Wisconsin Dome</button>
                         <button onclick="showDay(6)" class="quick-nav-btn" id="nav-6">Day 7: Journey Home</button>
-                    </div>
-                </div>
-                
-                <div class="sidebar-section">
-                    <h3>💰 Budget Summary</h3>
-                    <div class="budget-item">
-                        <span class="budget-label">Duluth Hotel:</span>
-                        <span class="budget-value">$221.00</span>
-                    </div>
-                    <div class="budget-item">
-                        <span class="budget-label">Allouez Lakefront:</span>
-                        <span class="budget-value">$719.00</span>
-                    </div>
-                    <div class="budget-item">
-                        <span class="budget-label">Wisconsin Dome:</span>
-                        <span class="budget-value">$248.01</span>
-                    </div>
-                    <div class="budget-item" style="border-top: 2px solid #2c5530; padding-top: 0.5rem; margin-top: 0.5rem;">
-                        <span class="budget-label"><strong>Total Accommodations:</strong></span>
-                        <span class="budget-value"><strong>$1,188.01</strong></span>
                     </div>
                 </div>
                 
@@ -1258,10 +1219,14 @@
         
         let currentDayIndex = -1;
         
+        function startItinerary() {
+            document.getElementById('main-content').className = 'content show-days';
+            showDay(0);
+        }
+        
         function showDay(dayIndex) {
-            // Hide welcome page and no-selection
-            document.getElementById('welcome-page').style.display = 'none';
-            document.getElementById('no-selection').style.display = 'none';
+            // Ensure we're in day view mode
+            document.getElementById('main-content').className = 'content show-days';
             
             // Hide all day cards
             document.querySelectorAll('.day-card').forEach(card => {
@@ -1270,7 +1235,11 @@
             
             // Update sidebar navigation buttons
             document.querySelectorAll('.quick-nav-btn').forEach((btn, index) => {
-                btn.classList.toggle('active', index === dayIndex);
+                if (btn.id === 'nav-welcome') {
+                    btn.classList.remove('active');
+                } else {
+                    btn.classList.toggle('active', index - 1 === dayIndex);
+                }
             });
             
             if (dayIndex >= 0 && dayIndex < days.length) {
@@ -1294,14 +1263,8 @@
         }
         
         function showWelcome() {
-            // Hide all day cards
-            document.querySelectorAll('.day-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            document.getElementById('no-selection').style.display = 'none';
-            
-            // Show welcome page
-            document.getElementById('welcome-page').style.display = 'block';
+            // Switch to welcome view mode
+            document.getElementById('main-content').className = 'content show-welcome';
             
             // Reset navigation
             document.getElementById('current-day-display').textContent = 'Welcome';
@@ -1310,7 +1273,11 @@
             
             // Reset sidebar buttons
             document.querySelectorAll('.quick-nav-btn').forEach(btn => {
-                btn.classList.remove('active');
+                if (btn.id === 'nav-welcome') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
             });
             
             // Update navigation buttons
@@ -1327,8 +1294,8 @@
         }
         
         function nextDay() {
-            if (currentDayIndex === -1) {
-                showDay(0);
+            if (document.getElementById('main-content').classList.contains('show-welcome')) {
+                startItinerary();
             } else if (currentDayIndex < days.length - 1) {
                 showDay(currentDayIndex + 1);
             }
