@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Honeymoon 2025</title>
+    <title>Mercy & Jared's Honeymoon 2025</title>
     <style>
         * {
             margin: 0;
@@ -476,8 +476,197 @@
             display: none;
         }
         
-        .content.show-days .day-card.active {
+        .memories-page {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 20%, #dc2626 40%, #7c2d12 60%, #451a03 80%);
+            border-radius: 16px;
+            margin: 0;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            min-height: calc(100vh - 200px);
+            display: none;
+        }
+        
+        .memories-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        .upload-section {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 600px;
+        }
+        
+        .upload-area {
+            border: 2px dashed rgba(255,255,255,0.5);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .upload-area:hover {
+            border-color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .upload-area.dragover {
+            border-color: #fbbf24;
+            background: rgba(251, 191, 36, 0.2);
+        }
+        
+        .upload-input {
+            display: none;
+        }
+        
+        .upload-btn {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 85, 48, 0.4);
+            margin: 1rem;
+        }
+        
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 85, 48, 0.5);
+        }
+        
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 0 1rem;
+        }
+        
+        .memory-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .memory-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .memory-info {
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .memory-location {
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+        
+        .memory-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .memory-caption {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .memory-actions {
+            padding: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            flex: 1;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .download-all-btn {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+            margin: 2rem 1rem;
+        }
+        
+        .download-all-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+        }
+        
+        .content.show-memories .memories-page {
             display: block;
+        }
+        
+        .content.show-memories .welcome-page,
+        .content.show-memories .day-card,
+        .content.show-memories .sidebar {
+            display: none;
+        }
+        
+        .memory-count {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 1rem;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .memories-grid {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+            .memory-card {
+                margin: 0 1rem;
+            }
         }
         
         .quick-nav {
@@ -609,7 +798,7 @@
     <div class="container">
         <div class="header">
             <h1 class="title">Mercy & Jared's Honeymoon</h1>
-            <p class="subtitle">September 20-26, 2025 </p>
+            <p class="subtitle">September 20-26, 2025 | A 7-Day Journey Through Minnesota, Michigan & Wisconsin</p>
         </div>
         
         <div class="navigation">
@@ -628,8 +817,35 @@
         <div class="content show-welcome" id="main-content">
             <div class="main-content">
                 <div id="welcome-page" class="welcome-page">
+                    <div class="fall-decoration">📸🍂💕🍁📷</div>
+                    <h1 class="memories-title">Our Honeymoon Memories</h1>
+                    
+                    <div class="upload-section">
+                        <div class="upload-area" onclick="document.getElementById('file-input').click()" 
+                             ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">📷</div>
+                            <h3 style="color: #fbbf24; margin-bottom: 1rem;">Upload Your Honeymoon Photos</h3>
+                            <p>Drag and drop photos here or click to select files</p>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Supports: JPG, PNG, HEIC, WebP</p>
+                            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem; color: #22c55e;">
+                                ☁️ Photos automatically saved to mercykenya/honeymoon repository
+                            </p>
+                        </div>
+                        <input type="file" id="file-input" class="upload-input" multiple accept="image/*" onchange="handleFiles(event.target.files)">
+                        <button onclick="document.getElementById('file-input').click()" class="upload-btn">📁 Choose Photos</button>
+                        <button onclick="setupGitHubToken()" class="upload-btn" style="background: linear-gradient(135deg, #1f2937 0%, #374151 100%);">🔑 GitHub Setup</button>
+                        <button onclick="downloadAllMemories()" class="download-all-btn">💾 Download All Memories</button>
+                    </div>
+                    
+                    <div class="memory-count" id="memory-count">No memories uploaded yet</div>
+                    
+                    <div class="memories-grid" id="memories-grid">
+                        <!-- Photos will be displayed here -->
+                    </div>
+                </div>
                     <div class="fall-decoration">🍂🍁🌰🎃🍂</div>
-                    <h1 class="welcome-title">Our Honeymoon Adventure!</h1>
+                    <h1 class="welcome-title">Welcome to Our Honeymoon Adventure!</h1>
+                    <p class="welcome-subtitle">Mercy & Jared's 7-Day Journey Through Fall Colors<br>September 20-26, 2025</p>
                     
                     <div class="instructions-section">
                         <h3 class="instructions-title">🗺️ How to Use This Itinerary</h3>
@@ -693,7 +909,7 @@
                                     <a href="https://maps.google.com/?q=Brainerd,Minnesota" target="_blank" class="tag map-link">🗺️ Directions</a>
                                 </div>
                                 <div class="activity-item">
-                                    <div class="activity-text">Pack wedding cake and drinks for the road, remember the cooler</div>
+                                    <div class="activity-text">Pack wedding cake and drinks for the road</div>
                                 </div>
                             </div>
                         </div>
@@ -808,7 +1024,7 @@
                             </div>
                             <div class="accommodation-links">
                                 <a href="https://maps.google.com/?q=5+Mile+Point+Rd,Allouez,MI+49805" target="_blank" class="tag map-link">🗺️ Property Directions</a>
-                                <a href="https://www.airbnb.com/rooms/10283920?adults=2&photo_id=1701623318&source_impression_id=p3_1754850720_P3BvPESdbmIAEMed&previous_page_section_name=1000" target="_blank" class="tag airbnb-link">🏠 Airbnb Listing</a>
+                                <a href="https://www.airbnb.com/rooms/1234567890" target="_blank" class="tag airbnb-link">🏠 Airbnb Listing</a>
                             </div>
                         </div>
                     </div>
@@ -1076,7 +1292,7 @@
                             </div>
                             <div class="accommodation-links">
                                 <a href="https://maps.google.com/?q=6206+Hwy+V,Caledonia,WI+53108" target="_blank" class="tag map-link">🗺️ Dome Directions</a>
-                                <a href="https://www.airbnb.com/rooms/915029504334391083?adults=2&photo_id=2212451551&source_impression_id=p3_1754850708_P3CEsuR9UI3n9gN0&previous_page_section_name=1000" target="_blank" class="tag airbnb-link">🏠 Airbnb Listing</a>
+                                <a href="https://www.airbnb.com/rooms/0987654321" target="_blank" class="tag airbnb-link">🏠 Airbnb Listing</a>
                             </div>
                         </div>
                     </div>
@@ -1158,6 +1374,7 @@
                     <h3>🗓️ Quick Navigation</h3>
                     <div class="quick-nav">
                         <button onclick="showWelcome()" class="quick-nav-btn" id="nav-welcome">🏠 Welcome Page</button>
+                        <button onclick="showMemories()" class="quick-nav-btn" id="nav-memories">📸 Our Memories</button>
                         <button onclick="showDay(0)" class="quick-nav-btn" id="nav-0">Day 1: Wedding & Duluth</button>
                         <button onclick="showDay(1)" class="quick-nav-btn" id="nav-1">Day 2: Travel to Paradise</button>
                         <button onclick="showDay(2)" class="quick-nav-btn" id="nav-2">Day 3: Copper Harbor</button>
@@ -1216,7 +1433,413 @@
             { date: '2025-09-26', name: 'Day 7: Journey Home' }
         ];
         
-        let currentDayIndex = -1;
+        // GitHub configuration
+        const GITHUB_CONFIG = {
+            owner: 'mercykenya',
+            repo: 'honeymoon',
+            branch: 'main',
+            token: null, // Will be set by user
+            memoriesPath: 'memories'
+        };
+        
+        // Memory storage
+        let memories = [];
+        let memoryCounter = 0;
+        let githubToken = localStorage.getItem('github_token');
+        
+        // GitHub API functions
+        async function githubRequest(endpoint, method = 'GET', body = null) {
+            if (!githubToken) {
+                throw new Error('GitHub token not set');
+            }
+            
+            const response = await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${endpoint}`, {
+                method,
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: body ? JSON.stringify(body) : null
+            });
+            
+            if (!response.ok) {
+                throw new Error(`GitHub API error: ${response.status}`);
+            }
+            
+            return response.json();
+        }
+        
+        async function uploadToGitHub(filename, content, message) {
+            try {
+                // Check if file exists
+                let sha = null;
+                try {
+                    const existing = await githubRequest(`contents/${GITHUB_CONFIG.memoriesPath}/${filename}`);
+                    sha = existing.sha;
+                } catch (e) {
+                    // File doesn't exist, which is fine
+                }
+                
+                const data = {
+                    message,
+                    content: btoa(content), // Base64 encode
+                    branch: GITHUB_CONFIG.branch
+                };
+                
+                if (sha) {
+                    data.sha = sha; // For updating existing files
+                }
+                
+                const result = await githubRequest(`contents/${GITHUB_CONFIG.memoriesPath}/${filename}`, 'PUT', data);
+                return result;
+            } catch (error) {
+                console.error('GitHub upload error:', error);
+                throw error;
+            }
+        }
+        
+        async function loadMemoriesFromGitHub() {
+            if (!githubToken) return;
+            
+            try {
+                const contents = await githubRequest(`contents/${GITHUB_CONFIG.memoriesPath}`);
+                const memoryFiles = contents.filter(file => file.name.endsWith('.json'));
+                
+                for (const file of memoryFiles) {
+                    try {
+                        const response = await fetch(file.download_url);
+                        const memoryData = await response.json();
+                        memories.push(memoryData);
+                        displayMemory(memoryData);
+                    } catch (e) {
+                        console.error('Error loading memory:', file.name, e);
+                    }
+                }
+                
+                memoryCounter = Math.max(...memories.map(m => m.id || 0), 0);
+                updateMemoryCount();
+            } catch (error) {
+                console.error('Error loading memories from GitHub:', error);
+            }
+        }
+        
+        function setupGitHubToken() {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.8); display: flex; align-items: center; 
+                justify-content: center; z-index: 1000;
+            `;
+            
+            const dialog = document.createElement('div');
+            dialog.style.cssText = `
+                background: white; padding: 2rem; border-radius: 12px; 
+                max-width: 500px; margin: 1rem; color: #333;
+            `;
+            
+            dialog.innerHTML = `
+                <h3 style="margin-bottom: 1rem; color: #2c5530;">🔑 GitHub Setup</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.5;">
+                    To save memories permanently, we need a GitHub Personal Access Token:
+                </p>
+                <ol style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.6;">
+                    <li>Go to <a href="https://github.com/settings/tokens" target="_blank" style="color: #2c5530;">GitHub Settings → Tokens</a></li>
+                    <li>Click "Generate new token (classic)"</li>
+                    <li>Give it a name like "Honeymoon Memories"</li>
+                    <li>Select scope: <strong>repo</strong> (full repository access)</li>
+                    <li>Click "Generate token" and copy it</li>
+                </ol>
+                <input type="password" id="token-input" placeholder="Paste your GitHub token here..." 
+                       style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 1rem;">
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button onclick="this.closest('[style*=fixed]').remove()" 
+                            style="padding: 0.8rem 1.5rem; background: #ccc; border: none; border-radius: 6px; cursor: pointer;">Skip</button>
+                    <button onclick="saveGitHubToken()" 
+                            style="padding: 0.8rem 1.5rem; background: #2c5530; color: white; border: none; border-radius: 6px; cursor: pointer;">Save Token</button>
+                </div>
+            `;
+            
+            modal.appendChild(dialog);
+            document.body.appendChild(modal);
+        }
+        
+        function saveGitHubToken() {
+            const token = document.getElementById('token-input').value.trim();
+            if (token) {
+                githubToken = token;
+                localStorage.setItem('github_token', token);
+                document.querySelector('[style*="position: fixed"]').remove();
+                loadMemoriesFromGitHub();
+                alert('✅ GitHub token saved! Your memories will now be stored permanently.');
+            } else {
+                alert('Please enter a valid token.');
+            }
+        }
+        
+        function showMemories() {
+            document.getElementById('main-content').className = 'content show-memories';
+            
+            // Reset navigation
+            document.getElementById('current-day-display').textContent = 'Our Memories';
+            document.getElementById('date-picker').value = '';
+            currentDayIndex = -1;
+            
+            // Update sidebar buttons
+            document.querySelectorAll('.quick-nav-btn').forEach(btn => {
+                if (btn.id === 'nav-memories') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = true;
+            document.getElementById('next-btn').disabled = true;
+            
+            updateMemoryCount();
+            
+            // Check for GitHub token
+            if (!githubToken) {
+                setTimeout(() => {
+                    if (confirm('🔑 Would you like to set up permanent storage for your memories using GitHub? This will let you and Jared access them anytime!')) {
+                        setupGitHubToken();
+                    }
+                }, 1000);
+            } else {
+                // Load existing memories if we haven't already
+                if (memories.length === 0) {
+                    loadMemoriesFromGitHub();
+                }
+            }
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const uploadArea = e.target.closest('.upload-area');
+            uploadArea.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        }
+        
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const uploadArea = e.target.closest('.upload-area');
+            uploadArea.classList.add('dragover');
+        }
+        
+        function handleDragLeave(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const uploadArea = e.target.closest('.upload-area');
+            uploadArea.classList.remove('dragover');
+        }
+        
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const memory = {
+                            id: ++memoryCounter,
+                            src: e.target.result,
+                            name: file.name,
+                            size: file.size,
+                            type: file.type,
+                            uploadDate: new Date().toISOString(),
+                            location: '',
+                            caption: ''
+                        };
+                        
+                        memories.push(memory);
+                        displayMemory(memory);
+                        updateMemoryCount();
+                        
+                        // Save to GitHub if token is available
+                        if (githubToken) {
+                            saveMemoryToGitHub(memory);
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+        
+        async function saveMemoryToGitHub(memory) {
+            try {
+                // Save image file
+                const base64Data = memory.src.split(',')[1];
+                const imageFilename = `${memory.id}_${memory.name}`;
+                
+                await uploadToGitHub(
+                    imageFilename,
+                    base64Data,
+                    `Add honeymoon memory: ${memory.name}`
+                );
+                
+                // Save metadata
+                const metadataFilename = `${memory.id}_metadata.json`;
+                const metadata = {
+                    ...memory,
+                    src: `https://raw.githubusercontent.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}/${GITHUB_CONFIG.memoriesPath}/${imageFilename}`
+                };
+                
+                await uploadToGitHub(
+                    metadataFilename,
+                    JSON.stringify(metadata, null, 2),
+                    `Add metadata for memory: ${memory.name}`
+                );
+                
+                // Update the memory with GitHub URL
+                memory.githubUrl = metadata.src;
+                
+                console.log(`✅ Memory "${memory.name}" saved to GitHub!`);
+            } catch (error) {
+                console.error('Error saving to GitHub:', error);
+                alert(`⚠️ Could not save "${memory.name}" to GitHub. Check your token and try again.`);
+            }
+        }
+        
+        function displayMemory(memory) {
+            const memoriesGrid = document.getElementById('memories-grid');
+            const memoryCard = document.createElement('div');
+            memoryCard.className = 'memory-card';
+            memoryCard.setAttribute('data-memory-id', memory.id);
+            
+            const uploadDate = typeof memory.uploadDate === 'string' ? new Date(memory.uploadDate) : memory.uploadDate;
+            
+            memoryCard.innerHTML = `
+                <img src="${memory.src}" alt="${memory.name}" class="memory-image" onclick="viewFullSize(${memory.id})">
+                <div class="memory-info">
+                    <div class="memory-location">
+                        <input type="text" placeholder="📍 Add location..." value="${memory.location}" 
+                               onchange="updateMemoryLocation(${memory.id}, this.value)"
+                               style="background: transparent; border: none; color: #fbbf24; font-weight: 600; width: 100%; outline: none;">
+                    </div>
+                    <div class="memory-date">${uploadDate.toLocaleDateString()}</div>
+                    <div class="memory-caption">
+                        <textarea placeholder="💭 Add a caption..." onchange="updateMemoryCaption(${memory.id}, this.value)"
+                                  style="background: transparent; border: none; color: white; width: 100%; resize: none; outline: none; font-size: 0.9rem; line-height: 1.4;">${memory.caption}</textarea>
+                    </div>
+                </div>
+                <div class="memory-actions">
+                    <button class="action-btn" onclick="downloadMemory(${memory.id})">💾 Download</button>
+                    <button class="action-btn" onclick="deleteMemory(${memory.id})">🗑️ Delete</button>
+                    ${githubToken ? '<span style="color: #22c55e; font-size: 0.8rem;">☁️ Saved</span>' : ''}
+                </div>
+            `;
+            
+            memoriesGrid.appendChild(memoryCard);
+        }
+        
+        async function updateMemoryLocation(id, location) {
+            const memory = memories.find(m => m.id === id);
+            if (memory) {
+                memory.location = location;
+                if (githubToken) {
+                    await updateMemoryMetadata(memory);
+                }
+            }
+        }
+        
+        async function updateMemoryCaption(id, caption) {
+            const memory = memories.find(m => m.id === id);
+            if (memory) {
+                memory.caption = caption;
+                if (githubToken) {
+                    await updateMemoryMetadata(memory);
+                }
+            }
+        }
+        
+        async function updateMemoryMetadata(memory) {
+            try {
+                const metadataFilename = `${memory.id}_metadata.json`;
+                const metadata = { ...memory };
+                if (memory.githubUrl) {
+                    metadata.src = memory.githubUrl;
+                }
+                
+                await uploadToGitHub(
+                    metadataFilename,
+                    JSON.stringify(metadata, null, 2),
+                    `Update memory: ${memory.name}`
+                );
+            } catch (error) {
+                console.error('Error updating metadata:', error);
+            }
+        }
+        
+        function viewFullSize(id) {
+            const memory = memories.find(m => m.id === id);
+            if (memory) {
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                    background: rgba(0,0,0,0.9); display: flex; align-items: center; 
+                    justify-content: center; z-index: 1000; cursor: pointer;
+                `;
+                modal.onclick = () => document.body.removeChild(modal);
+                
+                const img = document.createElement('img');
+                img.src = memory.src;
+                img.style.cssText = 'max-width: 90%; max-height: 90%; object-fit: contain;';
+                
+                modal.appendChild(img);
+                document.body.appendChild(modal);
+            }
+        }
+        
+        function downloadMemory(id) {
+            const memory = memories.find(m => m.id === id);
+            if (memory) {
+                const link = document.createElement('a');
+                link.download = memory.name;
+                link.href = memory.src;
+                link.click();
+            }
+        }
+        
+        function deleteMemory(id) {
+            if (confirm('Are you sure you want to delete this memory?')) {
+                memories = memories.filter(m => m.id !== id);
+                const card = document.querySelector(`[data-memory-id="${id}"]`);
+                if (card) {
+                    card.remove();
+                }
+                updateMemoryCount();
+            }
+        }
+        
+        function downloadAllMemories() {
+            if (memories.length === 0) {
+                alert('No memories to download!');
+                return;
+            }
+            
+            memories.forEach((memory, index) => {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.download = `honeymoon_memory_${index + 1}_${memory.name}`;
+                    link.href = memory.src;
+                    link.click();
+                }, index * 500); // Stagger downloads
+            });
+        }
+        
+        function updateMemoryCount() {
+            const countElement = document.getElementById('memory-count');
+            const count = memories.length;
+            if (count === 0) {
+                countElement.textContent = 'No memories uploaded yet';
+            } else {
+                countElement.textContent = `${count} precious ${count === 1 ? 'memory' : 'memories'} saved ❤️`;
+            }
+        }
         
         function startItinerary() {
             document.getElementById('main-content').className = 'content show-days';
@@ -1236,8 +1859,10 @@
             document.querySelectorAll('.quick-nav-btn').forEach((btn, index) => {
                 if (btn.id === 'nav-welcome') {
                     btn.classList.remove('active');
+                } else if (btn.id === 'nav-memories') {
+                    btn.classList.remove('active');
                 } else {
-                    btn.classList.toggle('active', index - 1 === dayIndex);
+                    btn.classList.toggle('active', index - 2 === dayIndex);
                 }
             });
             
