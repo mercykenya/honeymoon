@@ -350,16 +350,114 @@
             flex-wrap: wrap;
         }
         
-        .no-selection {
+        .welcome-page {
             text-align: center;
-            padding: 4rem 2rem;
-            color: #6b7280;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 20%, #dc2626 40%, #7c2d12 60%, #451a03 80%);
+            border-radius: 16px;
+            margin: 2rem 0;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
         
-        .no-selection h3 {
-            color: #2c5530;
+        .welcome-title {
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .fall-decoration {
+            font-size: 2rem;
+            margin: 1rem 0;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .instructions-section {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: left;
+        }
+        
+        .instructions-title {
             font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #fbbf24;
+            text-align: center;
+        }
+        
+        .instruction-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .instruction-icon {
+            font-size: 1.5rem;
+            min-width: 2rem;
+        }
+        
+        .instruction-text {
+            flex: 1;
+        }
+        
+        .instruction-text h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fbbf24;
+        }
+        
+        .instruction-text p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .start-button {
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 85, 48, 0.4);
+            margin-top: 2rem;
+        }
+        
+        .start-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 85, 48, 0.5);
+        }
+        
+        .no-selection {
+            display: none;
         }
         
         .quick-nav {
@@ -491,7 +589,7 @@
     <div class="container">
         <div class="header">
             <h1 class="title">Mercy & Jared's Honeymoon</h1>
-            <p class="subtitle">September 20-26, 2025 | A 7-Day itinerary </p>
+            <p class="subtitle">September 20-26, 2025 | A 7-Day Journey Through Minnesota, Michigan & Wisconsin</p>
         </div>
         
         <div class="navigation">
@@ -509,6 +607,74 @@
         
         <div class="content">
             <div class="main-content">
+                <div id="welcome-page" class="welcome-page">
+                    <div class="fall-decoration">🍂🍁🌰🎃🍂</div>
+                    <h1 class="welcome-title">Welcome to Our Honeymoon Adventure!</h1>
+                    <p class="welcome-subtitle">Mercy & Jared's 7-Day Journey Through Fall Colors<br>September 20-26, 2025</p>
+                    
+                    <div class="instructions-section">
+                        <h3 class="instructions-title">🗺️ How to Use This Itinerary</h3>
+                        
+                        <div class="instruction-item">
+                            <div class="instruction-icon">📱</div>
+                            <div class="instruction-text">
+                                <h4>Mobile-Friendly Navigation</h4>
+                                <p>This site works perfectly on your phone! Use it while driving for directions and checking plans on the go.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-item">
+                            <div class="instruction-icon">⬅️➡️</div>
+                            <div class="instruction-text">
+                                <h4>Easy Day Navigation</h4>
+                                <p>Use the "Previous Day" and "Next Day" buttons at the top, or click any day in the sidebar to jump around.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-item">
+                            <div class="instruction-icon">🗺️</div>
+                            <div class="instruction-text">
+                                <h4>Quick Directions</h4>
+                                <p>Look for blue "🗺️ Directions" buttons - these open Google Maps with exact addresses for easy navigation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-item">
+                            <div class="instruction-icon">🏠</div>
+                            <div class="instruction-text">
+                                <h4>Accommodation Links</h4>
+                                <p>Red "🏠 Airbnb" buttons take you directly to our booking confirmations and check-in details.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-item">
+                            <div class="instruction-icon">💰</div>
+                            <div class="instruction-text">
+                                <h4>Budget Tracking</h4>
+                                <p>Green tags show estimated costs. The sidebar has our complete accommodation budget breakdown.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-item">
+                            <div class="instruction-icon">📅</div>
+                            <div class="instruction-text">
+                                <h4>Date Picker</h4>
+                                <p>Use the date selector at the top to jump to any specific day quickly.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="instruction-item">
+                            <div class="instruction-icon">💡</div>
+                            <div class="instruction-text">
+                                <h4>Local Tips & Notes</h4>
+                                <p>Blue tip boxes contain insider information about each location, plus practical travel advice.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="showDay(0)" class="start-button">🍂 Start Our Adventure - Day 1 🍁</button>
+                </div>
+                
                 <div id="no-selection" class="no-selection">
                     <h3>🍂 Welcome to Our Honeymoon Adventure! 🍁</h3>
                     <p>Select a day from the sidebar or use the navigation above to explore our 7-day journey</p>
@@ -530,7 +696,7 @@
                                     <a href="https://maps.google.com/?q=Brainerd,Minnesota" target="_blank" class="tag map-link">🗺️ Directions</a>
                                 </div>
                                 <div class="activity-item">
-                                    <div class="activity-text">Pack some piece of wedding cake and drinks for the road. Carry a cooler</div>
+                                    <div class="activity-text">Pack wedding cake and drinks for the road</div>
                                 </div>
                             </div>
                         </div>
@@ -649,7 +815,7 @@
                             </div>
                             <div class="accommodation-links">
                                 <a href="https://maps.google.com/?q=5+Mile+Point+Rd,Allouez,MI+49805" target="_blank" class="tag map-link">🗺️ Property Directions</a>
-                                <a href="https://www.airbnb.com/rooms/915029504334391083?adults=2&photo_id=2212451551&source_impression_id=p3_1754849713_P3vSrXjoBXlAJIcW&previous_page_section_name=1000" target="_blank" class="tag airbnb-link">🏠 Airbnb Listing</a>
+                                <a href="https://www.airbnb.com/rooms/1234567890" target="_blank" class="tag airbnb-link">🏠 Airbnb Listing</a>
                             </div>
                         </div>
                     </div>
@@ -1011,6 +1177,7 @@
                 <div class="sidebar-section">
                     <h3>🗓️ Quick Navigation</h3>
                     <div class="quick-nav">
+                        <button onclick="showWelcome()" class="quick-nav-btn" id="nav-welcome">🏠 Welcome Page</button>
                         <button onclick="showDay(0)" class="quick-nav-btn" id="nav-0">Day 1: Wedding & Duluth</button>
                         <button onclick="showDay(1)" class="quick-nav-btn" id="nav-1">Day 2: Travel to Paradise</button>
                         <button onclick="showDay(2)" class="quick-nav-btn" id="nav-2">Day 3: Copper Harbor</button>
@@ -1092,11 +1259,14 @@
         let currentDayIndex = -1;
         
         function showDay(dayIndex) {
-            // Hide all day cards and no-selection
+            // Hide welcome page and no-selection
+            document.getElementById('welcome-page').style.display = 'none';
+            document.getElementById('no-selection').style.display = 'none';
+            
+            // Hide all day cards
             document.querySelectorAll('.day-card').forEach(card => {
                 card.classList.remove('active');
             });
-            document.getElementById('no-selection').style.display = 'none';
             
             // Update sidebar navigation buttons
             document.querySelectorAll('.quick-nav-btn').forEach((btn, index) => {
@@ -1123,14 +1293,43 @@
             }
         }
         
+        function showWelcome() {
+            // Hide all day cards
+            document.querySelectorAll('.day-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.getElementById('no-selection').style.display = 'none';
+            
+            // Show welcome page
+            document.getElementById('welcome-page').style.display = 'block';
+            
+            // Reset navigation
+            document.getElementById('current-day-display').textContent = 'Welcome';
+            document.getElementById('date-picker').value = '';
+            currentDayIndex = -1;
+            
+            // Reset sidebar buttons
+            document.querySelectorAll('.quick-nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = true;
+            document.getElementById('next-btn').disabled = false;
+        }
+        
         function previousDay() {
             if (currentDayIndex > 0) {
                 showDay(currentDayIndex - 1);
+            } else if (currentDayIndex === 0) {
+                showWelcome();
             }
         }
         
         function nextDay() {
-            if (currentDayIndex < days.length - 1) {
+            if (currentDayIndex === -1) {
+                showDay(0);
+            } else if (currentDayIndex < days.length - 1) {
                 showDay(currentDayIndex + 1);
             }
         }
@@ -1170,9 +1369,9 @@
             }
         });
         
-        // Initialize with first day
+        // Initialize with welcome page
         window.addEventListener('load', function() {
-            setTimeout(() => showDay(0), 500);
+            setTimeout(() => showWelcome(), 500);
         });
     </script>
 </body>
