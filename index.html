@@ -15,152 +15,109 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2c1810;
-            background: linear-gradient(135deg, #d2691e 0%, #8b4513 25%, #a0522d 50%, #cd853f 75%, #daa520 100%);
+            background: linear-gradient(135deg, #f8f5f0 0%, #e8ddd0 100%);
             min-height: 100vh;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: #faf5f0;
-            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.3);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             min-height: 100vh;
         }
         
         .header {
-            background: linear-gradient(135deg, #8b4513 0%, #a0522d 25%, #cd853f 50%, #d2691e 75%, #daa520 100%);
-            color: #faf5f0;
+            background: linear-gradient(135deg, #8b4513 0%, #cd853f 100%);
+            color: white;
             padding: 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,248,220,0.2)"><path d="M0,0 Q250,50 500,25 T1000,0 L1000,100 L0,100 Z"/></svg>') no-repeat bottom;
-            background-size: cover;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
         }
         
         .title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: 1.1rem;
             opacity: 0.9;
         }
         
-        .navigation-bar {
-            background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
+        .navigation {
+            background: #f5f5f5;
             padding: 1rem;
+            border-bottom: 2px solid #cd853f;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 2rem;
             flex-wrap: wrap;
-            border-bottom: 3px solid #d2691e;
+            gap: 1rem;
         }
         
-        .nav-arrows {
+        .nav-controls {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
         
         .nav-btn {
-            background: linear-gradient(135deg, #d2691e 0%, #cd853f 100%);
-            color: #faf5f0;
+            background: #cd853f;
+            color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 50%;
-            font-size: 1.2rem;
+            padding: 8px 15px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(210, 105, 30, 0.3);
+            font-size: 1rem;
+            transition: background 0.3s ease;
         }
         
-        .nav-btn:hover {
-            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
-            transform: translateY(-2px);
+        .nav-btn:hover:not(:disabled) {
+            background: #8b4513;
         }
         
         .nav-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-            transform: none;
+        }
+        
+        .current-day {
+            font-weight: 600;
+            color: #8b4513;
+            min-width: 200px;
+            text-align: center;
         }
         
         .date-selector {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            color: #8b4513;
+            gap: 0.5rem;
         }
         
         .date-input {
-            padding: 8px 15px;
-            border: 2px solid #cd853f;
-            border-radius: 20px;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s ease;
-            background: #faf5f0;
-            color: #8b4513;
-        }
-        
-        .date-input:focus {
-            border-color: #d2691e;
-            box-shadow: 0 0 10px rgba(210, 105, 30, 0.3);
-        }
-        
-        .check-btn {
-            background: linear-gradient(135deg, #d2691e 0%, #cd853f 100%);
-            color: #faf5f0;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
-        }
-        
-        .check-btn:hover {
-            background: linear-gradient(135deg, #a0522d 0%, #8b4513 100%);
-            transform: translateY(-2px);
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
         
         .content {
-            padding: 2rem;
             display: grid;
-            grid-template-columns: 1fr 300px;
+            grid-template-columns: 1fr 280px;
             gap: 2rem;
+            padding: 2rem;
         }
         
         .main-content {
-            min-height: 600px;
+            min-height: 500px;
         }
         
         .sidebar {
-            background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
+            background: #f9f9f9;
             padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid #cd853f;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
             height: fit-content;
             position: sticky;
             top: 2rem;
@@ -169,254 +126,165 @@
         .sidebar h3 {
             color: #8b4513;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .budget-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            padding: 0.3rem 0;
-        }
-        
-        .budget-total {
-            border-top: 2px solid #cd853f;
-            margin-top: 1rem;
-            padding-top: 0.5rem;
-            font-weight: bold;
-            color: #a0522d;
-        }
-        
-        .tips-section {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid #cd853f;
-        }
-        
-        .tip-item {
-            background: rgba(210, 105, 30, 0.1);
-            padding: 0.8rem;
-            border-radius: 8px;
-            margin-bottom: 0.8rem;
-            border-left: 3px solid #d2691e;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #cd853f;
+            padding-bottom: 0.5rem;
         }
         
         .day-card {
-            background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
-            border-radius: 12px;
+            background: white;
+            border-radius: 8px;
             padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 15px rgba(139, 69, 19, 0.2);
-            border-left: 5px solid #cd853f;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #cd853f;
             display: none;
-            animation: fadeIn 0.5s ease-in;
         }
         
         .day-card.active {
             display: block;
-            border-left-color: #d2691e;
-            background: linear-gradient(135deg, #fdf5e6 0%, #f4a460 20%, #daa520 100%);
-            box-shadow: 0 12px 25px rgba(210, 105, 30, 0.3);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            border-left-color: #8b4513;
         }
         
         .day-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #8b4513;
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
+            text-align: center;
             border-bottom: 2px solid #cd853f;
+            padding-bottom: 0.5rem;
         }
         
-        .active .day-title {
-            color: #a0522d;
-            border-bottom-color: #d2691e;
-        }
-        
-        .time-block {
+        .time-section {
             margin-bottom: 2rem;
+            background: #fafafa;
             padding: 1.5rem;
-            background: rgba(255, 248, 220, 0.7);
-            border-radius: 12px;
-            border-left: 4px solid #cd853f;
-        }
-        
-        .active .time-block {
-            border-left-color: #d2691e;
-            background: rgba(255, 248, 220, 0.9);
+            border-radius: 6px;
+            border-left: 3px solid #cd853f;
         }
         
         .time-header {
-            font-weight: 700;
+            font-weight: 600;
             color: #8b4513;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 1.1rem;
         }
         
-        .activity-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .activity-list li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 2rem;
+        .activity-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 0.5rem;
         }
         
-        .activity-list li::before {
-            content: '🍂';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
+        .activity-item:last-child {
+            border-bottom: none;
         }
         
-        .active .activity-list li::before {
-            content: '🍁';
+        .activity-text {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .tag {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
         }
         
         .cost-tag {
-            background: linear-gradient(135deg, #228b22 0%, #32cd32 100%);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            box-shadow: 0 2px 5px rgba(34, 139, 34, 0.3);
-            font-weight: bold;
+            background: #e8f5e8;
+            color: #2d5a2d;
+            border: 1px solid #4caf50;
         }
         
         .location-tag {
-            background: linear-gradient(135deg, #ff6347 0%, #ff4500 100%);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            box-shadow: 0 2px 5px rgba(255, 99, 71, 0.3);
-            font-weight: bold;
-        }
-        
-        .map-link {
-            background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
-            font-weight: bold;
-            transition: transform 0.2s ease;
-        }
-        
-        .map-link:hover {
-            transform: translateY(-1px);
-            text-decoration: none;
-            color: white;
-        }
-        
-        .airbnb-link {
-            background: linear-gradient(135deg, #ff5a5f 0%, #e31c5f 100%);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            box-shadow: 0 2px 5px rgba(255, 90, 95, 0.3);
-            font-weight: bold;
-            transition: transform 0.2s ease;
-        }
-        
-        .airbnb-link:hover {
-            transform: translateY(-1px);
-            text-decoration: none;
-            color: white;
-        }
-        
-        .restaurant-link {
-            background: linear-gradient(135deg, #9c27b0 0%, #673ab7 100%);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            box-shadow: 0 2px 5px rgba(156, 39, 176, 0.3);
-            font-weight: bold;
-            transition: transform 0.2s ease;
-        }
-        
-        .restaurant-link:hover {
-            transform: translateY(-1px);
-            text-decoration: none;
-            color: white;
-        }
-        
-        .info-panel {
-            background: linear-gradient(135deg, #f5deb3 0%, #daa520 100%);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 1rem;
+            background: #fff3e0;
             color: #8b4513;
             border: 1px solid #cd853f;
         }
         
-        .local-note {
-            background: linear-gradient(135deg, #e6f3ff 0%, #b3d9ff 100%);
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            border-left: 4px solid #007acc;
-            color: #003d66;
+        .map-link {
+            background: #e3f2fd;
+            color: #1976d2;
+            text-decoration: none;
+            border: 1px solid #2196f3;
         }
         
-        .local-note-title {
-            font-weight: bold;
-            color: #003d66;
+        .map-link:hover {
+            background: #bbdefb;
+            text-decoration: none;
+        }
+        
+        .note-box {
+            background: #f0f8ff;
+            border: 1px solid #87ceeb;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .note-title {
+            font-weight: 600;
+            color: #1e88e5;
             margin-bottom: 0.5rem;
         }
         
-        .summary-stats {
+        .accommodation-box {
+            background: #fff8e1;
+            border: 1px solid #ffb74d;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .no-selection {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+        
+        .quick-tips {
+            margin-top: 1.5rem;
+        }
+        
+        .tip-item {
+            background: #f5f5f5;
+            padding: 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
             margin-top: 2rem;
             grid-column: 1 / -1;
         }
         
-        .stat-card {
-            background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
+        .summary-card {
+            background: #f9f9f9;
             padding: 1rem;
-            border-radius: 8px;
+            border-radius: 6px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(139, 69, 19, 0.2);
-            border: 1px solid #cd853f;
+            border: 1px solid #e0e0e0;
         }
         
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .summary-value {
+            font-size: 1.3rem;
+            font-weight: 600;
             color: #8b4513;
         }
         
-        .stat-label {
-            color: #a0522d;
+        .summary-label {
+            color: #666;
             font-size: 0.9rem;
-        }
-        
-        .no-selection {
-            text-align: center;
-            padding: 4rem;
-            color: #8b4513;
-            grid-column: 1 / -1;
         }
         
         @media (max-width: 1024px) {
@@ -431,34 +299,36 @@
         
         @media (max-width: 768px) {
             .container { margin: 0; }
-            .title { font-size: 2rem; }
-            .navigation-bar {
+            .title { font-size: 1.8rem; }
+            .navigation {
                 flex-direction: column;
-                gap: 1rem;
+                text-align: center;
             }
             .content { padding: 1rem; }
+            .activity-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="header-content">
-                <h1 class="title">Mercy & Jared's Honeymoon 2025</h1>
-                <p class="subtitle">September 20-26, 2025 | Minnesota → Michigan → Wisconsin → Home</p>
-            </div>
+            <h1 class="title">Mercy & Jared's Honeymoon 2025</h1>
+            <p class="subtitle">September 20-26, 2025 | Minnesota → Michigan → Wisconsin → Home</p>
         </div>
         
-        <div class="navigation-bar">
-            <div class="nav-arrows">
-                <button onclick="previousDay()" id="prev-btn" class="nav-btn">←</button>
-                <span id="current-day-display">Select a Day</span>
-                <button onclick="nextDay()" id="next-btn" class="nav-btn">→</button>
+        <div class="navigation">
+            <div class="nav-controls">
+                <button onclick="previousDay()" id="prev-btn" class="nav-btn">← Previous</button>
+                <div class="current-day" id="current-day-display">Select a Day</div>
+                <button onclick="nextDay()" id="next-btn" class="nav-btn">Next →</button>
             </div>
             <div class="date-selector">
                 <label for="date-picker">Jump to:</label>
                 <input type="date" id="date-picker" class="date-input" min="2025-09-20" max="2025-09-26">
-                <button onclick="checkDay()" class="check-btn">Go</button>
+                <button onclick="checkDay()" class="nav-btn">Go</button>
             </div>
         </div>
         
@@ -466,7 +336,7 @@
             <div class="main-content">
                 <div id="no-selection" class="no-selection">
                     <h3>🍂 Welcome to the Honeymoon Adventure! 🍁</h3>
-                    <p>Use the navigation arrows above or select a date to explore the 7-day journey</p>
+                    <p>Use the navigation above to explore the 7-day journey</p>
                     <p><strong>September 20-26, 2025</strong></p>
                 </div>
                 
@@ -474,44 +344,48 @@
                 <div id="day-1" class="day-card" data-date="2025-09-20">
                     <h2 class="day-title">Day 1: Wedding Day & Duluth Evening</h2>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">6:00 PM - Departure from Wedding</div>
-                        <ul class="activity-list">
-                            <li>Leave Brainerd after wedding reception 
-                                <span class="location-tag">Brainerd, MN</span>
-                                <a href="https://maps.google.com/?q=Brainerd,Minnesota" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Pack some wedding cake and drinks for the road!</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Leave Brainerd after wedding reception</div>
+                            <span class="location-tag">Brainerd, MN</span>
+                            <a href="https://maps.google.com/?q=Brainerd,Minnesota" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Pack wedding cake and drinks for the road</div>
+                        </div>
                     </div>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">8:30 PM - Arrival in Duluth</div>
-                        <ul class="activity-list">
-                            <li>Canal Park & Aerial Lift Bridge - Walk across the lit-up bridge hand-in-hand 
-                                <span class="location-tag">Duluth, MN</span>
-                                <a href="https://maps.google.com/?q=Aerial+Lift+Bridge,Duluth,Minnesota" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Late dinner at Lake Avenue Restaurant & Bar 
-                                <span class="cost-tag">~$80</span>
-                                <a href="https://www.lakeaveduluth.com/" target="_blank" class="restaurant-link">🍽️ Menu</a>
-                                <a href="https://maps.google.com/?q=Lake+Avenue+Restaurant+Bar,Duluth,Minnesota" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Lakewalk stroll under the stars with bridge views</li>
-                            <li>Champagne toast at hotel overlooking Lake Superior</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Canal Park & Aerial Lift Bridge - Walk across the lit-up bridge</div>
+                            <span class="location-tag">Duluth, MN</span>
+                            <a href="https://maps.google.com/?q=Aerial+Lift+Bridge,Duluth,Minnesota" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Late dinner at Lake Avenue Restaurant & Bar</div>
+                            <span class="cost-tag">~$80</span>
+                            <a href="https://maps.google.com/?q=Lake+Avenue+Restaurant+Bar,Duluth,Minnesota" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Lakewalk stroll under the stars with bridge views</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Champagne toast at hotel overlooking Lake Superior</div>
+                        </div>
                     </div>
                     
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Local Tip:</div>
-                        The Aerial Lift Bridge lifts every 15 minutes during summer evenings. Best photo ops are from the Canal Park side at sunset. The Lakewalk is beautifully lit at night and extends 7+ miles along Lake Superior.
+                    <div class="note-box">
+                        <div class="note-title">💡 Local Tip:</div>
+                        The Aerial Lift Bridge lifts every 15 minutes during summer evenings. Best photo ops are from the Canal Park side at sunset. The Lakewalk is beautifully lit at night.
                     </div>
                     
-                    <div class="info-panel">
-                        <strong>Overnight:</strong> Fairfield Inn & Suites By Marriott Duluth Waterfront Hotel<br>
+                    <div class="accommodation-box">
+                        <strong>Overnight:</strong> Fairfield Inn & Suites By Marriott Duluth Waterfront<br>
                         <strong>Address:</strong> 1000 Minnesota Avenue, Duluth, 55802<br>
                         <strong>Cost:</strong> $221 (includes breakfast)<br>
-                        <a href="https://maps.google.com/?q=Fairfield+Inn+Suites+Duluth+Waterfront,1000+Minnesota+Avenue,Duluth,MN" target="_blank" class="map-link">📍 Hotel Map</a>
+                        <a href="https://maps.google.com/?q=1000+Minnesota+Avenue,Duluth,MN+55802" target="_blank" class="tag map-link">📍 Hotel Directions</a>
                     </div>
                 </div>
                 
@@ -519,51 +393,56 @@
                 <div id="day-2" class="day-card" data-date="2025-09-21">
                     <h2 class="day-title">Day 2: Travel Day & First Night in Paradise</h2>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Morning in Duluth (9:00 AM - 12:00 PM)</div>
-                        <ul class="activity-list">
-                            <li>Breakfast at the hotel (included) <span class="cost-tag">Free</span></li>
-                            <li>Scenic drive prep - pack snacks and drinks <span class="cost-tag">~$30</span></li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Breakfast at the hotel (included)</div>
+                            <span class="cost-tag">Free</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Scenic drive prep - pack snacks and drinks</div>
+                            <span class="cost-tag">~$30</span>
+                        </div>
                     </div>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">12:00 PM - Drive to Allouez (2.5-3 hours)</div>
-                        <ul class="activity-list">
-                            <li>Scenic stops along Lake Superior for photos 
-                                <a href="https://maps.google.com/?q=Lake+Superior+North+Shore+Scenic+Drive" target="_blank" class="map-link">📍 Scenic Route</a>
-                            </li>
-                            <li>Lunch en route at a charming lakeside town <span class="cost-tag">~$40-60</span></li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Scenic stops along Lake Superior for photos</div>
+                            <a href="https://maps.google.com/?q=1000+Minnesota+Avenue,Duluth,MN+to+5+Mile+Point+Rd,Allouez,MI+49805" target="_blank" class="tag map-link">📍 Driving Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Lunch en route at a charming lakeside town</div>
+                            <span class="cost-tag">~$40-60</span>
+                        </div>
                     </div>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">3:30 PM - Arrival at the Lakefront Paradise</div>
-                        <ul class="activity-list">
-                            <li>Check-in at 4:00 PM 
-                                <span class="location-tag">Allouez, MI</span>
-                                <a href="https://maps.google.com/?q=Allouez,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Grocery run to MarketPlace Foods in Houghton (20 minutes away) 
-                                <span class="cost-tag">~$150</span>
-                                <a href="https://maps.google.com/?q=MarketPlace+Foods,Houghton,Michigan" target="_blank" class="map-link">📍 Store Map</a>
-                            </li>
-                            <li>Sunset dinner cooked together in the full kitchen</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Check-in at 4:00 PM at 5 Mile Point Rd, Allouez, MI 49805</div>
+                            <span class="location-tag">Allouez, MI</span>
+                            <a href="https://maps.google.com/?q=5+Mile+Point+Rd,Allouez,MI+49805" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Grocery run to MarketPlace Foods in Houghton (20 minutes away)</div>
+                            <span class="cost-tag">~$150</span>
+                            <a href="https://maps.google.com/?q=MarketPlace+Foods,Houghton,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Sunset dinner cooked together in the full kitchen</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Fireplace time with wine and wedding photos</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">First night stargazing on Lake Superior</div>
+                        </div>
                     </div>
                     
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Local Tip:</div>
+                    <div class="note-box">
+                        <div class="note-title">💡 Local Tip:</div>
                         Stop at the Keweenaw Co-op in Houghton for local, organic options. They feature 45+ local UP producers. Also visit Peterson's Fish Market for fresh Lake Superior fish!
-                    </div>
-                    
-                    <div class="time-block">
-                        <div class="time-header">Evening Romance</div>
-                        <ul class="activity-list">
-                            <li>Fireplace time with wine and wedding photos (outdoor fireplace available)</li>
-                            <li>First night stargazing on Lake Superior with blankets and soft music</li>
-                            <li>Rock hunting along the private beach</li>
-                        </ul>
                     </div>
                 </div>
                 
@@ -571,66 +450,67 @@
                 <div id="day-3" class="day-card" data-date="2025-09-22">
                     <h2 class="day-title">Day 3: Adventure & Copper Harbor Exploration</h2>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Morning (8:00 AM - 12:00 PM)</div>
-                        <ul class="activity-list">
-                            <li>Coffee & breakfast overlooking Lake Superior through wall of glass</li>
-                            <li>Beach rock hunting - search for agates and yooperlites</li>
-                            <li>Cozy reading time by the fireplace</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Coffee & breakfast overlooking Lake Superior</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Beach rock hunting - search for agates and yooperlites</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Cozy reading time by the fireplace</div>
+                        </div>
                     </div>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Afternoon Adventure (12:00 PM - 6:00 PM)</div>
-                        <ul class="activity-list">
-                            <li>Drive to Copper Harbor (1.5 hours) 
-                                <span class="location-tag">Copper Harbor, MI</span>
-                                <a href="https://maps.google.com/?q=Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Lunch at Mariner North Restaurant 
-                                <span class="cost-tag">~$35-50</span>
-                                <a href="https://maps.google.com/?q=Mariner+North+Restaurant,Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Keweenaw Agate Shop - honeymoon keepsakes of local stones 
-                                <span class="cost-tag">~$100</span>
-                                <a href="https://maps.google.com/?q=Keweenaw+Agate+Shop,Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Grandpa's Barn Bookstore - local history books 
-                                <span class="cost-tag">~$30</span>
-                                <a href="https://www.grandpasbarnbooks.com/" target="_blank" class="restaurant-link">📚 Website</a>
-                                <a href="https://maps.google.com/?q=Grandpa's+Barn+Books,Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>The Fisherman's Daughter - local art and pottery 
-                                <span class="cost-tag">~$40-80</span>
-                                <a href="https://maps.google.com/?q=Fisherman's+Daughter,Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Brockway Mountain Drive - scenic views with music 
-                                <a href="https://maps.google.com/?q=Brockway+Mountain+Drive,Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Scenic Drive</a>
-                            </li>
-                            <li>Fort Wilkins State Park - historic site and hiking 
-                                <span class="cost-tag">~$12 entry</span>
-                                <a href="https://www.michigan.gov/dnr/places/state-parks/fort-wilkins" target="_blank" class="restaurant-link">🏛️ Website</a>
-                                <a href="https://maps.google.com/?q=Fort+Wilkins+State+Park,Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Drive to Copper Harbor (1.5 hours)</div>
+                            <span class="location-tag">Copper Harbor, MI</span>
+                            <a href="https://maps.google.com/?q=5+Mile+Point+Rd,Allouez,MI+49805+to+Copper+Harbor,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Lunch at Mariner North Restaurant</div>
+                            <span class="cost-tag">~$35-50</span>
+                            <a href="https://maps.google.com/?q=Mariner+North+Restaurant,Copper+Harbor,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Keweenaw Agate Shop - honeymoon keepsakes</div>
+                            <span class="cost-tag">~$100</span>
+                            <a href="https://maps.google.com/?q=Keweenaw+Agate+Shop,Copper+Harbor,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Grandpa's Barn Bookstore - local history books</div>
+                            <span class="cost-tag">~$30</span>
+                            <a href="https://maps.google.com/?q=Grandpa's+Barn+Books,Copper+Harbor,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Brockway Mountain Drive - scenic views</div>
+                            <a href="https://maps.google.com/?q=Brockway+Mountain+Drive,Copper+Harbor,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Fort Wilkins State Park - historic site and hiking</div>
+                            <span class="cost-tag">~$12 entry</span>
+                            <a href="https://maps.google.com/?q=Fort+Wilkins+State+Park,Copper+Harbor,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
                     </div>
                     
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Local Tip:</div>
-                        Copper Harbor is the northernmost point in Michigan! The town has only ~100 year-round residents. Best time to visit Fort Wilkins is late afternoon for golden hour photography.
-                    </div>
-                    
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Evening (6:00 PM - 9:00 PM)</div>
-                        <ul class="activity-list">
-                            <li>Romantic dinner at Harbor Haus Restaurant (Call ahead for reservations!) 
-                                <span class="cost-tag">~$90</span>
-                                <a href="https://www.harborhaus.com/" target="_blank" class="restaurant-link">🍽️ Menu</a>
-                                <a href="https://maps.google.com/?q=Harbor+Haus+Restaurant,Copper+Harbor,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Sunset drive back to the lakefront home</li>
-                            <li>Relaxation - watch a DVD, read together, or fireplace time</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Romantic dinner at Harbor Haus Restaurant (Call ahead!)</div>
+                            <span class="cost-tag">~$90</span>
+                            <a href="https://maps.google.com/?q=Harbor+Haus+Restaurant,Copper+Harbor,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Sunset drive back to the lakefront home</div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-box">
+                        <div class="note-title">💡 Local Tip:</div>
+                        Copper Harbor is the northernmost point in Michigan! Best time to visit Fort Wilkins is late afternoon for golden hour photography.
                     </div>
                 </div>
                 
@@ -638,53 +518,61 @@
                 <div id="day-4" class="day-card" data-date="2025-09-23">
                     <h2 class="day-title">Day 4: Waterfalls & Local Flavors</h2>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Morning (9:00 AM - 1:00 PM)</div>
-                        <ul class="activity-list">
-                            <li>Lazy morning with breakfast in bed</li>
-                            <li>Eagle River Falls - walk the scenic wooden bridge over rushing water 
-                                <span class="location-tag">Eagle River, MI</span>
-                                <a href="https://maps.google.com/?q=Eagle+River+Falls,Eagle+River,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Pasty lunch at Roy's Pasties & Bakery in Houghton (local UP tradition!) 
-                                <span class="cost-tag">~$25</span>
-                                <span class="location-tag">Houghton, MI</span>
-                                <a href="https://royspasties.com/" target="_blank" class="restaurant-link">🥟 Website</a>
-                                <a href="https://maps.google.com/?q=Roy's+Pasties+Bakery,Houghton,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Lazy morning with breakfast in bed</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Eagle River Falls - scenic wooden bridge over rushing water</div>
+                            <span class="location-tag">Eagle River, MI</span>
+                            <a href="https://maps.google.com/?q=5+Mile+Point+Rd,Allouez,MI+49805+to+Eagle+River+Falls,Eagle+River,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Pasty lunch at Roy's Pasties & Bakery (local UP tradition!)</div>
+                            <span class="cost-tag">~$25</span>
+                            <span class="location-tag">Houghton, MI</span>
+                            <a href="https://maps.google.com/?q=Roy's+Pasties+Bakery,Houghton,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
                     </div>
                     
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Local Tip:</div>
-                        Pasties are pronounced "PASS-tees" and are a Cornish meat pie brought by miners. Roy's has been serving authentic pasties since 1946. Try the traditional beef & rutabaga!
-                    </div>
-                    
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Afternoon Waterfall Hunting (1:00 PM - 5:00 PM)</div>
-                        <ul class="activity-list">
-                            <li>Montreal Falls - stunning cascade 
-                                <a href="https://maps.google.com/?q=Montreal+Falls,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Manganese Falls - hidden gem 
-                                <a href="https://maps.google.com/?q=Manganese+Falls,Michigan" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Farmers market (if still in season) 
-                                <span class="cost-tag">~$20-40</span>
-                                <a href="https://maps.google.com/?q=Houghton+Farmers+Market,Michigan" target="_blank" class="map-link">📍 Market</a>
-                            </li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Montreal Falls - stunning cascade</div>
+                            <a href="https://maps.google.com/?q=Montreal+Falls,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Manganese Falls - hidden gem</div>
+                            <a href="https://maps.google.com/?q=Manganese+Falls,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Farmers market (if still in season)</div>
+                            <span class="cost-tag">~$20-40</span>
+                            <a href="https://maps.google.com/?q=Houghton+Farmers+Market,Michigan" target="_blank" class="tag map-link">📍 Directions</a>
+                        </div>
                     </div>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Evening Romance (5:00 PM onwards)</div>
-                        <ul class="activity-list">
-                            <li>Grocery shopping for romantic dinner ingredients <span class="cost-tag">~$60-80</span></li>
-                            <li>Cook together - try local Lake Superior fish or other specialties</li>
-                            <li>Sunset watching from the wall of glass</li>
-                            <li>Board games or card games by the fireplace</li>
-                            <li>Pure relaxation time</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Grocery shopping for romantic dinner ingredients</div>
+                            <span class="cost-tag">~$60-80</span>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Cook together - try local Lake Superior fish</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Sunset watching from the wall of glass</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Board games or card games by the fireplace</div>
+                        </div>
+                    </div>
+                    
+                    <div class="note-box">
+                        <div class="note-title">💡 Local Tip:</div>
+                        Pasties are pronounced "PASS-tees" and are a Cornish meat pie brought by miners. Roy's has been serving authentic pasties since 1946. Try the traditional beef & rutabaga!
                     </div>
                 </div>
                 
@@ -692,21 +580,33 @@
                 <div id="day-5" class="day-card" data-date="2025-09-24">
                     <h2 class="day-title">Day 5: Pure Romance & Relaxation</h2>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Full Day of Honeymoon Bliss</div>
-                        <ul class="activity-list">
-                            <li>Sleep in and breakfast whenever you want</li>
-                            <li>Morning beach walk and rock hunting expedition</li>
-                            <li>Picnic lunch on the private beach</li>
-                            <li>Afternoon nap in each other's arms</li>
-                            <li>Sunset watching from the panoramic windows</li>
-                            <li>Candlelit dinner prepared together (this will be so much fun!)</li>
-                            <li>Stargazing on Lake Superior shores</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Sleep in and breakfast whenever desired</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Morning beach walk and rock hunting expedition</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Picnic lunch on the private beach</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Afternoon nap together</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Sunset watching from the panoramic windows</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Candlelit dinner prepared together</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Stargazing on Lake Superior shores</div>
+                        </div>
                     </div>
                     
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Local Tip:</div>
+                    <div class="note-box">
+                        <div class="note-title">💡 Local Tip:</div>
                         September is perfect for stargazing - minimal light pollution and clear skies. Look for the Northern Lights! Best viewing is between 10 PM - 2 AM facing north.
                     </div>
                 </div>
@@ -715,272 +615,39 @@
                 <div id="day-6" class="day-card" data-date="2025-09-25">
                     <h2 class="day-title">Day 6: Wisconsin Dome Adventure</h2>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">Morning Farewell (8:00 AM - 12:00 PM)</div>
-                        <ul class="activity-list">
-                            <li>Final sunrise together at Lake Superior</li>
-                            <li>Leisurely breakfast and careful packing</li>
-                            <li>Property photos for the honeymoon album</li>
-                            <li>Check-out by 12:00 PM from Allouez accommodation <span class="cost-tag">End $719</span></li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Final sunrise together at Lake Superior</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Leisurely breakfast and careful packing</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Property photos for the honeymoon album</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Check-out by 12:00 PM from Allouez accommodation</div>
+                            <span class="cost-tag">End $719</span>
+                        </div>
                     </div>
                     
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">12:00 PM - Scenic Drive to Wisconsin (4-5 hours)</div>
-                        <ul class="activity-list">
-                            <li>Route: Allouez → Green Bay → Milwaukee area → Caledonia 
-                                <a href="https://maps.google.com/?q=Allouez,Michigan+to+Caledonia,Wisconsin" target="_blank" class="map-link">📍 Route</a>
-                            </li>
-                            <li>Lunch stop in Green Bay area or along scenic Highway 42 through Door County 
-                                <span class="cost-tag">~$50-70</span>
-                                <a href="https://maps.google.com/?q=Door+County,Wisconsin" target="_blank" class="map-link">📍 Door County</a>
-                            </li>
-                            <li>Photo opportunities along Lake Michigan</li>
-                        </ul>
+                        <div class="activity-item">
+                            <div class="activity-text">Route: Allouez → Green Bay → Milwaukee area → Caledonia</div>
+                            <a href="https://maps.google.com/?q=5+Mile+Point+Rd,Allouez,MI+49805+to+6206+Hwy+V,Caledonia,WI+53108" target="_blank" class="tag map-link">📍 Driving Directions</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Lunch stop in Green Bay area or Door County</div>
+                            <span class="cost-tag">~$50-70</span>
+                            <a href="https://maps.google.com/?q=Door+County,Wisconsin" target="_blank" class="tag map-link">📍 Door County</a>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-text">Apple picking at local orchard (seasonal)</div>
+                            <span class="cost-tag">~$20-30</span>
+                        </div>
                     </div>
                     
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Local Tip:</div>
-                        Door County is called the "Cape Cod of the Midwest" - perfect for fall colors! Stop in Fish Creek or Egg Harbor for lunch and scenic views.
-                    </div>
-                    
-                    <div class="time-block">
+                    <div class="time-section">
                         <div class="time-header">4:30 PM - Arrival at The Dome, Caledonia</div>
-                        <ul class="activity-list">
-                            <li>Check-in to unique circular accommodation 
-                                <span class="location-tag">Caledonia, WI</span> 
-                                <span class="cost-tag">$248.01</span>
-                                <a href="https://www.airbnb.com/rooms/915029504334391083" target="_blank" class="airbnb-link">🏠 Airbnb</a>
-                                <a href="https://maps.google.com/?q=Caledonia,Wisconsin" target="_blank" class="map-link">📍 Map</a>
-                            </li>
-                            <li>Explore panoramic views and stargazing opportunities through clear dome panels</li>
-                            <li>Romantic dinner at Joey Gerard's Supper Club (nearby Greendale) 
-                                <span class="cost-tag">~$100-140</span>
-                                <a href="https://maps.google.com/?q=Joey+Gerard's+Supper+Club,Greendale,Wisconsin" target="_blank" class="map-link">📍 Restaurant</a>
-                            </li>
-                            <li>Private evening in this one-of-a-kind setting</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Dome Tips:</div>
-                        The dome has a queen bed, mini fridge, and coffee maker. Bring warm clothes for evening stargazing! The circular structure offers 360° views. Best stargazing is around 9-11 PM.
-                    </div>
-                </div>
-                
-                <!-- Day 7 -->
-                <div id="day-7" class="day-card" data-date="2025-09-26">
-                    <h2 class="day-title">Day 7: Journey Home</h2>
-                    
-                    <div class="time-block">
-                        <div class="time-header">Morning</div>
-                        <ul class="activity-list">
-                            <li>Wake up in the magical dome setting</li>
-                            <li>Coffee and breakfast enjoying the unique views</li>
-                            <li>Explore Caledonia area - apple orchards, Lake Michigan shoreline</li>
-                            <li>Final photos and packing</li>
-                            <li>Check-out from The Dome</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="time-block">
-                        <div class="time-header">11:00 AM - Drive to Chicago (1.5-2 hours)</div>
-                        <ul class="activity-list">
-                            <li>Easy, direct route home 
-                                <span class="location-tag">Chicago, IL</span>
-                                <a href="https://maps.google.com/?q=Caledonia,Wisconsin+to+Chicago,Illinois" target="_blank" class="map-link">📍 Route Home</a>
-                            </li>
-                            <li>Optional lunch stop <span class="cost-tag">~$30-50</span></li>
-                            <li>1:00-2:00 PM: Arrive home with hearts and bags full of memories</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="local-note">
-                        <div class="local-note-title">🍂 Final Tip:</div>
-                        September in Wisconsin is perfect for apple picking! If time allows, stop at an orchard near Caledonia for a sweet ending to the honeymoon.
-                    </div>
-                </div>
-                
-                <div class="summary-stats">
-                    <div class="stat-card">
-                        <div class="stat-value">~$1,200</div>
-                        <div class="stat-label">Total Estimated Cost(only accomodation now: talk with Jared and update it)</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">7 Days</div>
-                        <div class="stat-label">Complete Honeymoon</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">800 Miles</div>
-                        <div class="stat-label">Total Distance</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">3 States</div>
-                        <div class="stat-label">Minnesota, Michigan, Wisconsin</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="sidebar">
-                <h3>💰 Budget Breakdown</h3>
-                <div class="budget-item">
-                    <span>Accommodations:</span>
-                    <span>$1,188.01</span>
-                </div>
-                <!-- <div class="budget-item">
-                    <span>Meals & Dining:</span>
-                    <span>~$300</span>
-                </div>
-                <div class="budget-item">
-                    <span>Activities & Shopping:</span>
-                    <span>~$200</span>
-                </div>
-                <div class="budget-item">
-                    <span>Gas & Transportation:</span>
-                    <span>~$300</span>
-                </div>
-                <div class="budget-item">
-                    <span>Groceries:</span>
-                    <span>~$300-400</span>
-                </div>
-                <div class="budget-total">
-                    <span>Total Estimated:</span>
-                    <span>$2,938-3,488</span>
-                </div> -->
-                
-                <div class="tips-section">
-                    <h3>🍂 Honeymoon Tips</h3>
-                    
-                    <div class="tip-item">
-                        <strong>🌡️ September Weather:</strong>
-                        Will update after checking forecast closer to the date. Expect cool mornings and evenings, warm afternoons. 
-                    </div>
-                    
-                    <div class="tip-item">
-                        <strong>📱 Cell Service:</strong>
-                        Spotty in Copper Harbor area. Download offline maps before you go!
-                    </div>
-                    
-                    <div class="tip-item">
-                        <strong>🏪 Shopping:</strong>
-                        Stock up on groceries in Houghton. Limited options in remote areas.
-                    </div>
-                    
-                    <div class="tip-item">
-                        <strong>💳 Payment:</strong>
-                        Bring cash for small shops and farmers markets. Some places don't take cards.
-                    </div>
-                    
-                    <div class="tip-item">
-                        <strong>⭐ Stargazing:</strong>
-                        Download a stargazing app! The area has minimal light pollution - perfect for romance.
-                    </div>
-                    
-                    <div class="tip-item">
-                        <strong>🍷 Wine:</strong>
-                        Michigan has great local wines. Pick up a bottle from a local vineyard!
-                    </div>
-                    
-                    <div class="tip-item">
-                        <strong>📸 Photography:</strong>
-                        Golden hour is magical at waterfalls. Sunrise/sunset at Lake Superior are must-captures!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const days = [
-            { date: '2025-09-20', name: 'Day 1: Wedding & Duluth' },
-            { date: '2025-09-21', name: 'Day 2: Travel to Paradise' },
-            { date: '2025-09-22', name: 'Day 3: Copper Harbor Adventure' },
-            { date: '2025-09-23', name: 'Day 4: Waterfalls & Flavors' },
-            { date: '2025-09-24', name: 'Day 5: Pure Romance' },
-            { date: '2025-09-25', name: 'Day 6: Wisconsin Dome' },
-            { date: '2025-09-26', name: 'Day 7: Journey Home' }
-        ];
-        
-        let currentDayIndex = -1;
-        
-        function showDay(dayIndex) {
-            // Hide all day cards and no-selection
-            document.querySelectorAll('.day-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            document.getElementById('no-selection').style.display = 'none';
-            
-            if (dayIndex >= 0 && dayIndex < days.length) {
-                const day = days[dayIndex];
-                const targetDay = document.querySelector(`[data-date="${day.date}"]`);
-                if (targetDay) {
-                    targetDay.classList.add('active');
-                    targetDay.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    
-                    // Update current day display
-                    document.getElementById('current-day-display').textContent = day.name;
-                    document.getElementById('date-picker').value = day.date;
-                    
-                    currentDayIndex = dayIndex;
-                    
-                    // Update navigation buttons
-                    document.getElementById('prev-btn').disabled = dayIndex === 0;
-                    document.getElementById('next-btn').disabled = dayIndex === days.length - 1;
-                }
-            }
-        }
-        
-        function previousDay() {
-            if (currentDayIndex > 0) {
-                showDay(currentDayIndex - 1);
-            }
-        }
-        
-        function nextDay() {
-            if (currentDayIndex < days.length - 1) {
-                showDay(currentDayIndex + 1);
-            }
-        }
-        
-        function checkDay() {
-            const dateInput = document.getElementById('date-picker');
-            const selectedDate = dateInput.value;
-            
-            if (!selectedDate) {
-                alert('Please select a date first!');
-                return;
-            }
-            
-            const dayIndex = days.findIndex(day => day.date === selectedDate);
-            if (dayIndex !== -1) {
-                showDay(dayIndex);
-            } else {
-                alert('No plans found for this date. Please select a date between September 20-26, 2025.');
-            }
-        }
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                previousDay();
-            } else if (e.key === 'ArrowRight') {
-                nextDay();
-            } else if (e.key === 'Enter' && document.activeElement === document.getElementById('date-picker')) {
-                checkDay();
-            }
-        });
-        
-        // Allow Enter key to trigger check
-        document.getElementById('date-picker').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkDay();
-            }
-        });
-        
-        // Initialize with first day
-        window.addEventListener('load', function() {
-            setTimeout(() => showDay(0), 500);
-        });
-    </script>
-</body>
-</html>
